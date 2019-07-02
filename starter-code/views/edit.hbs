@@ -1,7 +1,7 @@
-<form action="/places/create" method="post">
+<form action="/places/{{_id}}/edit" method="post">
   <p>
     <label for="name">Name</label>
-    <input type="text" name="name" placeholder="Name" id="name">
+    <input type="text" name="name" placeholder="Name" id="name" value="{{name}}">
   </p>
 
   <p>
@@ -14,5 +14,6 @@
     </select>
   </p>
 
-  <input type="submit" value="Create">
+  <input type="submit" value="Edit">
+
 </form>
