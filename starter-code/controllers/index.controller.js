@@ -15,7 +15,12 @@ exports.getOnePlace = (req, res, next) => {
 exports.getCreatePlace = (req, res, next) => res.render('create')
 
 exports.postCreatePlace = (req, res, next) => {
-  Place.create({ ...req.body })
+  const { location } = req.body
+  const n = {
+    ...location,
+    coordinates: [Number(location.coordinates[0]), Number(location.coordinates[1])]
+  }
+  Place.create({ ...req.body, n })
     .then(place => res.redirect(`/places/${place._id}`))
     .catch(err => next(err))
 }
